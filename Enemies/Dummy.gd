@@ -1,5 +1,5 @@
 extends StaticBody2D
-class_name enemy
+class_name dummy
 
 var health = 100
 
