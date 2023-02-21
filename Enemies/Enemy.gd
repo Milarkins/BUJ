@@ -7,6 +7,8 @@ var health = 100
 
 var inRange := []
 
+onready var hunter_bullet = load("res://Bullets/EnemyBullet.tscn")
+
 enum hunter {
 	Move,
 	Shoot,
@@ -31,6 +33,8 @@ func _process(delta):
 	var dir = global_position.direction_to(playerPos)
 	var dist = global_position.distance_to(playerPos)
 
+	$ShotDir.look_at(playerPos)
+
 	#keep way
 	for i in inRange:
 		var range_dir = global_position.direction_to(i.global_position)
@@ -48,7 +52,14 @@ func _process(delta):
 			hunter.Move:
 				move_and_slide(dir * speed)
 			hunter.Shoot:
-				pass
+				if $Cooldown.is_stopped():
+						var bullet = hunter_bullet.instance()
+
+						bullet.global_position = global_position
+						bullet.rotation = $ShotDir.rotation
+
+						get_tree().current_scene.add_child(bullet)
+						$Cooldown.start()
 			hunter.Flee:
 				move_and_slide(-dir * speed)
 
@@ -62,7 +73,9 @@ func _process(delta):
 			dog.Move:
 				move_and_slide(dir * speed)
 			dog.Bite:
-				pass
+				if $Cooldown.is_stopped():
+					player[0].health -= 10
+					$Cooldown.start()
 
 func set_state(state):
 	current_state = state

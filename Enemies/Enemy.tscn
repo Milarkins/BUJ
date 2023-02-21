@@ -20,5 +20,10 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource( 1 )
 
+[node name="ShotDir" type="Position2D" parent="."]
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Range" to="." method="range_enter"]
 [connection signal="body_exited" from="Range" to="." method="range_exit"]
