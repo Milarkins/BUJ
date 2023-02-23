@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name enemy
 
 export(int, "Hunter", "Dog") var type
+onready var type_num : int = rand_range(0,2)
 onready var player = get_tree().get_nodes_in_group("Player")
 var health = 100
 
@@ -22,6 +23,9 @@ enum dog {
 
 var current_state = hunter.Move
 export(float) var speed = 100
+
+func _ready():
+	type = type_num
 
 func _process(delta):
 	health = clamp(health, 0, 100)
