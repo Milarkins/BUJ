@@ -7,5 +7,5 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body is player:
-		body.health -= 10
+		body.health -= round(rand_range(7,10))
 		queue_free()

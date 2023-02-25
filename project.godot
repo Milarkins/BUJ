@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "pickup",
 "language": "GDScript",
-"path": "res://Pickup.gd"
+"path": "res://Pickups/Pickup.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "player",

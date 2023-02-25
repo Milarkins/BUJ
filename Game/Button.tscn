@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/Button.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="Button" type="Button" groups=["button"]]
+pause_mode = 2
+anchor_left = 0.125977
+anchor_top = 0.296667
+anchor_right = 0.333984
+anchor_bottom = 0.656667
+rect_pivot_offset = Vector2( 105, 107 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 105, 105 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="." to="." method="pressed"]

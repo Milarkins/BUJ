@@ -1,5 +1,6 @@
 extends KinematicBody2D
 var speed
+var damage_range = Vector2(0,0) #so there's no errors
 
 var explosion = load("res://Bullets/Explosion.tscn")
 func _process(delta):

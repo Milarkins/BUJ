@@ -6,14 +6,12 @@ var l_bullet = preload("res://Bullets/LaserBullet.tscn")
 export(int, "Normal", "Explosive", "Laser") var bullet_type
 var current_bullet
 
+export(Vector2) var bullet_damage_range
 export(float) var bullet_speed
 export(float) var bullet_spread
 export(int) var bullet_amount
 
 export(float) var shot_delay
-
-func _ready():
-	$Cooldown.wait_time = shot_delay
 
 func _process(delta):
 	look_at(get_global_mouse_position())
@@ -27,16 +25,27 @@ func _process(delta):
 	if Input.is_action_pressed("Click") and $Cooldown.is_stopped():
 			shoot()
 
+	flip()
+
 func shoot():
+	$Cooldown.wait_time = shot_delay
 	var bullets = []
 	
 	for i in bullet_amount:
 		bullets.resize(bullet_amount)
 		bullets[i] = current_bullet.instance()
 		bullets[i].global_position = $ShootPoint.global_position
+		bullets[i].damage_range = bullet_damage_range
 		bullets[i].speed = bullet_speed
 
 		bullets[i].rotation = (rotation - (bullet_spread * (bullet_amount/2))) + bullet_spread * i
 		
 		get_tree().current_scene.add_child(bullets[i])
 	$Cooldown.start()
+
+func flip():
+	var direction = get_global_mouse_position().x - global_position.x
+	if direction < 0:
+		$GunSprite.set_flip_v(true)
+	else:
+		$GunSprite.set_flip_v(false)

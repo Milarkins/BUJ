@@ -24,6 +24,9 @@ enum dog {
 var current_state = hunter.Move
 export(float) var speed = 100
 
+onready var view = get_viewport_rect().size
+var was_knockbacked = false
+
 func _ready():
 	type = type_num
 
@@ -33,6 +36,10 @@ func _process(delta):
 		queue_free()
 
 	#movement
+	var multiple = 1.5
+	global_position.x = clamp(global_position.x, 0, view.x*multiple)
+	global_position.y = clamp(global_position.y, 0, view.y*multiple)
+	
 	var playerPos = player[0].global_position
 	var dir = global_position.direction_to(playerPos)
 	var dist = global_position.distance_to(playerPos)
@@ -78,7 +85,7 @@ func _process(delta):
 				move_and_slide(dir * speed)
 			dog.Bite:
 				if $Cooldown.is_stopped():
-					player[0].health -= 10
+					player[0].health -= round(rand_range(5,8))
 					$Cooldown.start()
 
 func set_state(state):
