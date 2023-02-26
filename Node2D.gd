@@ -22,7 +22,6 @@ func _process(delta):
 	var buttons = get_tree().get_nodes_in_group("button")
 	var enemies = get_tree().get_nodes_in_group("Enemies")
 
-	print(current_phase)
 	match current_phase:
 		Choosing:
 			get_tree().paused = true
@@ -50,7 +49,7 @@ func phase(p):
 
 func timer(t):
 	if timer_on:
-		yield(get_tree().create_timer(0.040), "timeout")
+		yield(get_tree().create_timer(0.120), "timeout")
 		time += t
 
 	var mils = fmod(time,1)*1000

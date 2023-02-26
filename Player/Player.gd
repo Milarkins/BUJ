@@ -9,6 +9,8 @@ onready var view = get_viewport_rect().size
 
 var health = 100
 
+var stun = false
+
 func _process(delta):
 	health = clamp(health, 0, 100)
 	if health == 0:
@@ -22,9 +24,8 @@ func _process(delta):
 		Input.get_action_raw_strength("S") - Input.get_action_raw_strength("W")
 	).normalized()
 	
-	var multiple = 1.5
-	global_position.x = clamp(global_position.x, 0, view.x*multiple)
-	global_position.y = clamp(global_position.y, 0, view.y*multiple)
+	global_position.x = clamp(global_position.x, 0, view.x)
+	global_position.y = clamp(global_position.y, 0, view.y)
 
 	if current_pickup != null:
 		if Input.is_action_just_pressed("Click2") and cooldown.is_stopped():
@@ -36,3 +37,15 @@ func _process(delta):
 
 func _physics_process(delta):
 	move_and_slide(input_vector * 300)
+
+func knockback(b):
+	stun = true
+	var dir = global_position.direction_to(b)
+	if stun:
+		modulate = Color.lightcoral
+		move_and_slide(-dir * 600)
+		$StunTimer.start()
+
+func timeout():
+	modulate = Color.white
+	stun = false

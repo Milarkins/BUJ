@@ -7,4 +7,4 @@ func _ready():
 
 func _on_Explosion_body_entered(body):
 	if body is enemy:
-		body.health -= round(rand_range(80,100))
+		body.health -= 100

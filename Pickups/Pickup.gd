@@ -11,5 +11,6 @@ func _ready():
 func entered(body):
 	if body is player:
 		body.current_pickup = item
+		body.cooldown.stop()
 		body.cooldown.wait_time = cooldown_time
 		queue_free()

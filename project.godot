@@ -42,6 +42,12 @@ config/name="Bj2023"
 run/main_scene="res://Node2D.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1710
+window/size/height=962
+window/stretch/mode="viewport"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

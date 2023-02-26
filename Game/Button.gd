@@ -4,13 +4,14 @@ onready var player = get_tree().current_scene.get_node("Player")
 
 #guns
 var shotgun = [200,0.5,3,1,0,load("res://Textures/shotgun.png"),Vector2(40,50)]
+var sniper = [400,0,1,1,0,load("res://Textures/sniper.png"),Vector2(80,100)]
 var l_snipe = [400,0,1,1,2,load("res://Textures/laser_sniper.png"),Vector2(70,100)]
 var machine = [500,0,1,0.1,0,load("res://Textures/laser_sniper.png"),Vector2(20,40)]
 var pistol = [300,0,1,0.5,0,load("res://Textures/shotgun.png"),Vector2(-20,20)]
-var rocket = [400,0,1,1,1,load("res://Textures/shotgun.png"),Vector2(0,0)]
+var rocket = [300,0,1,2,1,load("res://Textures/shotgun.png"),Vector2(0,0)]
 var l_shot = [200,0.5,3,1,2,load("res://Textures/shotgun.png"),Vector2(30,40)]
 
-onready var gun_list := [shotgun,l_snipe,pistol,rocket,l_shot,machine]
+onready var gun_list := [shotgun,l_snipe,pistol,rocket,l_shot,machine,sniper]
 
 onready var current_gun = gun_list[rand_range(0,gun_list.size())]
 

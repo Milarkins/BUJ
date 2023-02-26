@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/SkipGun.gd" type="Script" id=2]
+[ext_resource path="res://UI/UiTheme.tres" type="Theme" id=3]
 
 [node name="GunOptions" type="Control"]
 pause_mode = 2
@@ -9,33 +10,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Button" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -173.16
+margin_right = 555.692
+margin_bottom = 173.16
 
 [node name="Button2" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.394531
-anchor_top = 0.298333
-anchor_right = 0.602538
-anchor_bottom = 0.658333
-margin_top = 1.52588e-05
-margin_bottom = -3.05176e-05
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -177.846
+margin_top = -173.16
+margin_right = 177.846
+margin_bottom = 173.16
 
 [node name="Button3" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.668945
-anchor_top = 0.301667
-anchor_right = 0.876952
-anchor_bottom = 0.661667
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -560.0
+margin_top = -173.16
+margin_right = -204.308
+margin_bottom = 173.16
 
 [node name="Button4" type="Button" parent="."]
-visible = false
-anchor_left = 0.413086
-anchor_top = 0.715
-anchor_right = 0.579102
-anchor_bottom = 0.78
-margin_top = 3.05176e-05
-margin_bottom = 3.05176e-05
-text = "No, I'm good"
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -214.5
+margin_top = -262.0
+margin_right = 214.5
+margin_bottom = -174.0
+theme = ExtResource( 3 )
+text = "Nah, I'm good"
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [connection signal="pressed" from="Button4" to="Button4" method="pressed"]

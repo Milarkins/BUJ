@@ -25,5 +25,10 @@ shape = SubResource( 1 )
 [node name="Cooldown" type="Timer" parent="."]
 one_shot = true
 
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="body_entered" from="Range" to="." method="range_enter"]
 [connection signal="body_exited" from="Range" to="." method="range_exit"]
+[connection signal="timeout" from="StunTimer" to="." method="timeout"]

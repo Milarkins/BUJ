@@ -25,10 +25,11 @@ var current_state = hunter.Move
 export(float) var speed = 100
 
 onready var view = get_viewport_rect().size
-var was_knockbacked = false
 
 func _ready():
 	type = type_num
+
+var stun = false
 
 func _process(delta):
 	health = clamp(health, 0, 100)
@@ -36,9 +37,8 @@ func _process(delta):
 		queue_free()
 
 	#movement
-	var multiple = 1.5
-	global_position.x = clamp(global_position.x, 0, view.x*multiple)
-	global_position.y = clamp(global_position.y, 0, view.y*multiple)
+	global_position.x = clamp(global_position.x, 0, view.x)
+	global_position.y = clamp(global_position.y, 0, view.y)
 	
 	var playerPos = player[0].global_position
 	var dir = global_position.direction_to(playerPos)
@@ -61,7 +61,8 @@ func _process(delta):
 
 		match current_state:
 			hunter.Move:
-				move_and_slide(dir * speed)
+				if stun == false:
+					move_and_slide(dir * speed)
 			hunter.Shoot:
 				if $Cooldown.is_stopped():
 						var bullet = hunter_bullet.instance()
@@ -82,10 +83,12 @@ func _process(delta):
 
 		match current_state:
 			dog.Move:
-				move_and_slide(dir * speed)
+				if stun == false:
+					move_and_slide(dir * speed)
 			dog.Bite:
 				if $Cooldown.is_stopped():
 					player[0].health -= round(rand_range(5,8))
+					player[0].knockback(global_position)
 					$Cooldown.start()
 
 func set_state(state):
@@ -98,3 +101,15 @@ func range_enter(body):
 func range_exit(body):
 	if body:
 		inRange.erase(body)
+
+func knockback(b):
+	stun = true
+	var dir = global_position.direction_to(b)
+	if stun:
+		modulate = Color.lightcoral
+		move_and_slide(-dir * 600)
+		$StunTimer.start()
+
+func timeout():
+	modulate = Color.white
+	stun = false

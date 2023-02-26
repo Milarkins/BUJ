@@ -16,7 +16,9 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 105, 105 )
+position = Vector2( 178, 170 )
+rotation = -0.746378
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [connection signal="pressed" from="." to="." method="pressed"]

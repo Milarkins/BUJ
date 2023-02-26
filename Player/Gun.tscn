@@ -11,7 +11,7 @@ __meta__ = {
 bullet_amount = 1
 
 [node name="ShootPoint" type="Position2D" parent="."]
-position = Vector2( 53, 0 )
+position = Vector2( 175, 0 )
 
 [node name="GunSprite" type="Sprite" parent="."]
 scale = Vector2( 1.62695, 1.59375 )
