@@ -13,5 +13,5 @@ func _process(delta):
 func _on_Area2D_body_entered(body):
 	if body is enemy:
 		body.health -= round(rand_range(damage_range.x,damage_range.y))
-		body.knockback(global_position)
+		body.no_knockback()
  

@@ -15,7 +15,7 @@ func _ready():
 
 var time = 0
 var time_text : String
-var timer_on = true
+var timer_on = false
 func _process(delta):
 	timer(delta)
 
@@ -49,7 +49,6 @@ func phase(p):
 
 func timer(t):
 	if timer_on:
-		yield(get_tree().create_timer(0.120), "timeout")
 		time += t
 
 	var mils = fmod(time,1)*1000
@@ -57,7 +56,10 @@ func timer(t):
 	var mins = fmod(time,60*60) / 60
 
 	var time_passed = "%02d : %02d : %03d" % [mins,secs,mils]
-	time_text = time_passed
+	if timer_on == false:
+		time_text = "Choose Gun!"
+	else:
+		time_text = time_passed
 
 func end_timer():
 	timer_on = false

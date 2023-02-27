@@ -34,6 +34,8 @@ var stun = false
 func _process(delta):
 	health = clamp(health, 0, 100)
 	if health == 0:
+		play_sound(load("res://SFX/hitHurt.mp3"))
+		yield(get_tree().create_timer(0.1), "timeout")
 		queue_free()
 
 	#movement
@@ -65,6 +67,7 @@ func _process(delta):
 					move_and_slide(dir * speed)
 			hunter.Shoot:
 				if $Cooldown.is_stopped():
+						play_sound(load("res://SFX/Pistol.mp3"))
 						var bullet = hunter_bullet.instance()
 
 						bullet.global_position = global_position
@@ -87,6 +90,7 @@ func _process(delta):
 					move_and_slide(dir * speed)
 			dog.Bite:
 				if $Cooldown.is_stopped():
+					play_sound(load("res://SFX/Bite.mp3"))
 					player[0].health -= round(rand_range(5,8))
 					player[0].knockback(global_position)
 					$Cooldown.start()
@@ -107,9 +111,21 @@ func knockback(b):
 	var dir = global_position.direction_to(b)
 	if stun:
 		modulate = Color.lightcoral
-		move_and_slide(-dir * 600)
+		move_and_slide(-dir * 1000)
+		play_sound(load("res://SFX/hitHurt.mp3"))
+		$StunTimer.start()
+
+func no_knockback():
+	stun = true
+	if stun:
+		modulate = Color.lightcoral
+		play_sound(load("res://SFX/hitHurt.mp3"))
 		$StunTimer.start()
 
 func timeout():
 	modulate = Color.white
 	stun = false
+
+func play_sound(sound):
+	$FX.stream = sound
+	$FX.play()

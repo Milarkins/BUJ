@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game/Button.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://SFX/Button.mp3" type="AudioStream" id=3]
 
 [node name="Button" type="Button" groups=["button"]]
 pause_mode = 2
@@ -21,4 +22,8 @@ rotation = -0.746378
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
+[node name="FX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="." to="." method="pressed"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/Machine.mp3-06d91ba6810e5d0edb6acb53afe7b750.sample"
+
+[deps]
+
+source_file="res://SFX/Machine.mp3"
+dest_files=[ "res://.import/Machine.mp3-06d91ba6810e5d0edb6acb53afe7b750.sample" ]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

@@ -3,13 +3,13 @@ extends Button
 onready var player = get_tree().current_scene.get_node("Player")
 
 #guns
-var shotgun = [200,0.5,3,1,0,load("res://Textures/shotgun.png"),Vector2(40,50)]
-var sniper = [400,0,1,1,0,load("res://Textures/sniper.png"),Vector2(80,100)]
-var l_snipe = [400,0,1,1,2,load("res://Textures/laser_sniper.png"),Vector2(70,100)]
-var machine = [500,0,1,0.1,0,load("res://Textures/laser_sniper.png"),Vector2(20,40)]
-var pistol = [300,0,1,0.5,0,load("res://Textures/shotgun.png"),Vector2(-20,20)]
-var rocket = [300,0,1,2,1,load("res://Textures/shotgun.png"),Vector2(0,0)]
-var l_shot = [200,0.5,3,1,2,load("res://Textures/shotgun.png"),Vector2(30,40)]
+var shotgun = [200,0.5,3,1,0,load("res://Textures/shotgun.png"),Vector2(40,50),Vector2(600,-50),load("res://SFX/shotgun.mp3")]
+var sniper = [400,0,1,1,0,load("res://Textures/sniper.png"),Vector2(80,100),Vector2(1200,-50),load("res://SFX/Sniper.mp3")]
+var l_snipe = [400,0,1,1,2,load("res://Textures/laser_sniper.png"),Vector2(70,100),Vector2(1200,-50),load("res://SFX/Laser.mp3")]
+var machine = [500,0,1,0.12,0,load("res://Textures/laser_sniper.png"),Vector2(20,40),Vector2(1078,-50),load("res://SFX/Machine.mp3")]
+var pistol = [300,0,1,0.5,0,load("res://Textures/pistol.png"),Vector2(-20,20),Vector2(600,-50),load("res://SFX/Pistol.mp3")]
+var rocket = [300,0,1,2,1,load("res://Textures/rocket.png"),Vector2(0,0),Vector2(1000,-50),load("res://SFX/Rocket.mp3")]
+var l_shot = [200,0.5,3,1,2,load("res://Textures/laser_shotgun.png"),Vector2(30,40),Vector2(600,-50),load("res://SFX/Laser2.mp3")]
 
 onready var gun_list := [shotgun,l_snipe,pistol,rocket,l_shot,machine,sniper]
 
@@ -22,6 +22,8 @@ var set_delay
 var set_type
 var set_texture
 var set_damage_range
+var set_shoot_point
+var set_sound
 
 func _ready():
 	randomize()
@@ -39,6 +41,8 @@ func set_all():
 	set_type = current_gun[4]
 	set_texture = current_gun[5]
 	set_damage_range = current_gun[6]
+	set_shoot_point = current_gun[7]
+	set_sound = current_gun[8]
 	$Sprite.texture = current_gun[5]
 
 func pressed():
@@ -49,8 +53,19 @@ func pressed():
 	player.get_node("Gun").bullet_type = set_type
 	player.get_node("Gun").get_node("GunSprite").texture = set_texture 
 	player.get_node("Gun").bullet_damage_range = set_damage_range
+	player.get_node("Gun").shoot_point_position = set_shoot_point
+	player.get_node("Gun").gun_sound = set_sound
+	play_sound(load("res://SFX/Button2.mp3"))
 
+	get_tree().current_scene.timer_on = true
 	get_tree().paused = false
 	get_tree().current_scene.start_attack()
 	get_tree().current_scene.decrease()
 	get_parent().get_node("Button4").visible = true
+
+func _on_Button_mouse_entered():
+	play_sound(load("res://SFX/Button.mp3"))
+
+func play_sound(sound):
+	$FX.stream = sound
+	$FX.play()

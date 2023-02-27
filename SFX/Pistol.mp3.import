@@ -1,0 +1,16 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/Pistol.mp3-237ff0575c9791a6463fe7516e651f80.sample"
+
+[deps]
+
+source_file="res://SFX/Pistol.mp3"
+dest_files=[ "res://.import/Pistol.mp3-237ff0575c9791a6463fe7516e651f80.sample" ]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

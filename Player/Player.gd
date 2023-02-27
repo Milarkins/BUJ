@@ -36,14 +36,14 @@ func _process(delta):
 			cooldown.start()
 
 func _physics_process(delta):
-	move_and_slide(input_vector * 300)
+	if !stun:
+		move_and_slide(input_vector * 300)
 
 func knockback(b):
 	stun = true
-	var dir = global_position.direction_to(b)
 	if stun:
 		modulate = Color.lightcoral
-		move_and_slide(-dir * 600)
+		$FX.play()
 		$StunTimer.start()
 
 func timeout():

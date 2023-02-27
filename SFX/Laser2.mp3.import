@@ -1,0 +1,16 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/Laser2.mp3-7fa1fd6f07d98e85e3560ee2c0846998.sample"
+
+[deps]
+
+source_file="res://SFX/Laser2.mp3"
+dest_files=[ "res://.import/Laser2.mp3-7fa1fd6f07d98e85e3560ee2c0846998.sample" ]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

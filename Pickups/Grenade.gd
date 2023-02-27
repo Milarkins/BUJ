@@ -2,6 +2,9 @@ extends KinematicBody2D
 var speed = 600
 
 var explosion = load("res://Bullets/Explosion.tscn")
+func _ready():
+	$FX.play()
+
 func _process(delta):
 	var direction = global_transform.basis_xform(Vector2.RIGHT)
 	move_and_slide(direction * speed)

@@ -1,0 +1,16 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamSample"
+path="res://.import/Button.mp3-c7ff5169bb3f15d84e56f3306b609ad0.sample"
+
+[deps]
+
+source_file="res://SFX/Button.mp3"
+dest_files=[ "res://.import/Button.mp3-c7ff5169bb3f15d84e56f3306b609ad0.sample" ]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

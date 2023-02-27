@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player/HealParticles.gd" type="Script" id=1]
+[ext_resource path="res://Textures/health_cross_green.png" type="Texture" id=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 1
+emission_sphere_radius = 98.64
+flag_disable_z = true
+spread = 45.21
+gravity = Vector3( 0, -98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 370.7
+angle_random = 0.44
+
+[node name="HealParticles" type="Particles2D"]
+scale = Vector2( 0.1, 0.1 )
+amount = 2
+explosiveness = 0.66
+randomness = 0.66
+process_material = SubResource( 1 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

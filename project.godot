@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Bj2023"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://Cutscene/Cutscene.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -47,6 +47,10 @@ config/icon="res://icon.png"
 window/size/width=1710
 window/size/height=962
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gdfxr/plugin.cfg" )
 
 [gui]
 

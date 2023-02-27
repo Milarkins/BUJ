@@ -7,6 +7,8 @@ export(int, "Normal", "Explosive", "Laser") var bullet_type
 var current_bullet
 
 export(Vector2) var bullet_damage_range
+export(Vector2) var shoot_point_position
+export(AudioStreamMP3) var gun_sound
 export(float) var bullet_speed
 export(float) var bullet_spread
 export(int) var bullet_amount
@@ -29,6 +31,10 @@ func _process(delta):
 
 func shoot():
 	$Cooldown.wait_time = shot_delay
+	$ShootPoint.position = shoot_point_position
+	$FX.stream = gun_sound
+	$FX.play()
+	
 	var bullets = []
 	
 	for i in bullet_amount:

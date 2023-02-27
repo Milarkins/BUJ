@@ -1,6 +1,7 @@
 extends Area2D
 
 func _ready():
+	$FX.play()
 	yield(get_tree().create_timer(2), "timeout")
 	queue_free()
 
