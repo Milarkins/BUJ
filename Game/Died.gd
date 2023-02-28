@@ -11,3 +11,24 @@ func quit_pressed():
 
 func replay_pressed():
 	get_tree().reload_current_scene()
+
+func set_text():
+	var promts = [
+		"Owwie",
+		"Bruh",
+		"Uh-Oh",
+		"Ouch",
+		"Loser",
+		"You Died",
+		"Lol",
+		"Hehe",
+		"Lmao",
+		"Haha",
+		"Ha",
+		"Dweeb",
+		"You Suck",
+		"Extinct",
+		"Dutch Win",
+		"Dutch:1, Dodo:0"
+		]
+	$Label2.text = promts[rand_range(0,promts.size())]

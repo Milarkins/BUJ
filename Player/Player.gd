@@ -17,6 +17,7 @@ func _process(delta):
 		get_tree().paused = true
 		get_tree().current_scene.get_node("CanvasLayer/UI").visible = false
 		get_tree().current_scene.get_node("CanvasLayer/Died").visible = true
+		get_tree().current_scene.get_node("CanvasLayer/Died").set_text()
 		get_tree().current_scene.end_timer()
 
 	input_vector = Vector2(
@@ -26,6 +27,16 @@ func _process(delta):
 	
 	global_position.x = clamp(global_position.x, 0, view.x)
 	global_position.y = clamp(global_position.y, 0, view.y)
+
+	if input_vector.x > 0:
+		$Sprite.flip_h = true
+	if input_vector.x < 0:
+		$Sprite.flip_h = false
+
+	if input_vector != Vector2.ZERO:
+		$AnimationPlayer.play("Move")
+	else:
+		$AnimationPlayer.play("Idle")
 
 	if current_pickup != null:
 		if Input.is_action_just_pressed("Click2") and cooldown.is_stopped():

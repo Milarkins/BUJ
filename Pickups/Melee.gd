@@ -7,5 +7,5 @@ func _ready():
 
 func entered(body):
 	if body is enemy:
-		body.health -= 20
+		body.health -= 35
 		body.knockback(global_position)

@@ -3,6 +3,7 @@ var speed
 var damage_range = Vector2(0,0) #so there's no errors
 
 func _ready():
+	$FX.play()
 	yield(get_tree().create_timer(30), "timeout")
 	queue_free()
 

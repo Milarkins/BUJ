@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WHERES_MY_KIDS.mp3-2b5549d6a7e04433ba7941f1a3b84f48.mp3str"
+
+[deps]
+
+source_file="res://Cutscene/WHERES_MY_KIDS.mp3"
+dest_files=[ "res://.import/WHERES_MY_KIDS.mp3-2b5549d6a7e04433ba7941f1a3b84f48.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

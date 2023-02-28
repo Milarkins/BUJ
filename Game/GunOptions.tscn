@@ -49,7 +49,9 @@ margin_left = -214.5
 margin_top = -262.0
 margin_right = 214.5
 margin_bottom = -174.0
+focus_mode = 0
 theme = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Nah, I'm good"
 script = ExtResource( 2 )
 

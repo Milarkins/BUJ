@@ -7,7 +7,7 @@ func _ready():
 	player.modulate = Color.green
 	$FX.play()
 	var part = particles.instance()
-	part.global_position = global_position + Vector2(60, -50)
+	part.global_position = global_position
 	get_tree().current_scene.add_child(part)
 	yield(get_tree().create_timer(0.5), "timeout")
 	player.modulate = Color.white

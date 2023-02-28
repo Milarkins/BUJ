@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/Button.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://SFX/Button.mp3" type="AudioStream" id=3]
+[ext_resource path="res://UI/UiTheme.tres" type="Theme" id=4]
 
 [node name="Button" type="Button" groups=["button"]]
 pause_mode = 2
@@ -11,6 +12,9 @@ anchor_top = 0.296667
 anchor_right = 0.333984
 anchor_bottom = 0.656667
 rect_pivot_offset = Vector2( 105, 107 )
+focus_mode = 0
+theme = ExtResource( 4 )
+enabled_focus_mode = 0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true

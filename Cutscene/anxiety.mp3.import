@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/anxiety.mp3-db8471127da4cde420ec00a59089f1be.mp3str"
+
+[deps]
+
+source_file="res://Cutscene/anxiety.mp3"
+dest_files=[ "res://.import/anxiety.mp3-db8471127da4cde420ec00a59089f1be.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

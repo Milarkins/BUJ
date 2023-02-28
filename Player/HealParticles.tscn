@@ -4,8 +4,11 @@
 [ext_resource path="res://Textures/health_cross_green.png" type="Texture" id=2]
 
 [sub_resource type="ParticlesMaterial" id=1]
-emission_shape = 1
-emission_sphere_radius = 98.64
+emission_shape = 5
+emission_ring_radius = 727.27
+emission_ring_inner_radius = 395.6
+emission_ring_height = 23.9
+emission_ring_axis = Vector3( 0, 0, 1 )
 flag_disable_z = true
 spread = 45.21
 gravity = Vector3( 0, -98, 0 )
@@ -16,7 +19,7 @@ angle_random = 0.44
 
 [node name="HealParticles" type="Particles2D"]
 scale = Vector2( 0.1, 0.1 )
-amount = 2
+amount = 4
 explosiveness = 0.66
 randomness = 0.66
 process_material = SubResource( 1 )

@@ -46,7 +46,15 @@ func _process(delta):
 	var dir = global_position.direction_to(playerPos)
 	var dist = global_position.distance_to(playerPos)
 
+	if playerPos.x > global_position.x:
+		$Sprite.flip_h = true
+	if playerPos.x < global_position.x:
+		$Sprite.flip_h = false
+
 	$ShotDir.look_at(playerPos)
+	
+	flip()
+	$Gun.look_at(playerPos)
 
 	#keep way
 	for i in inRange:
@@ -54,6 +62,7 @@ func _process(delta):
 		move_and_slide(-range_dir * (speed/3.5))
 
 	if type == 0: #hunter
+		$Gun.visible = true
 		if dist > 510:
 			set_state(hunter.Move)
 		elif dist < 490:
@@ -65,6 +74,7 @@ func _process(delta):
 			hunter.Move:
 				if stun == false:
 					move_and_slide(dir * speed)
+				$AnimationPlayer.play("Move")
 			hunter.Shoot:
 				if $Cooldown.is_stopped():
 						play_sound(load("res://SFX/Pistol.mp3"))
@@ -75,10 +85,14 @@ func _process(delta):
 
 						get_tree().current_scene.add_child(bullet)
 						$Cooldown.start()
+				$AnimationPlayer.play("Shoot")
 			hunter.Flee:
 				move_and_slide(-dir * speed)
+				$AnimationPlayer.play("Move")
 
 	if type == 1: #dog
+		$Gun.visible = false
+		$AnimationPlayer.play("Dug")
 		if dist > 100:
 			set_state(dog.Move)
 		else:
@@ -129,3 +143,10 @@ func timeout():
 func play_sound(sound):
 	$FX.stream = sound
 	$FX.play()
+
+func flip():
+	var direction = player[0].global_position.x - global_position.x
+	if direction < 0:
+		$Gun.set_flip_v(true)
+	else:
+		$Gun.set_flip_v(false)
