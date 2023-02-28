@@ -1,15 +1,12 @@
 extends Control
 
-var shotgun = [load("res://Textures/shotgun.png"),2]
+var scene1 = [load("res://Cutscene/cutscene1.png"),2]
 var sniper = [load("res://Textures/sniper.png"),1]
 var l_snipe = [load("res://Textures/laser_sniper.png"),0.5]
-var machine = [load("res://Textures/laser_sniper.png"),0.5]
-var pistol = [load("res://Textures/shotgun.png"),3]
-var rocket = [load("res://Textures/rocket.png"),1]
-var l_shot = [load("res://cat.jpg"),3]
+var machine = [load("res://cat.jpg"),0.5]
 
 #progression for (var : image) |-|-|->
-onready var image := [shotgun,sniper,l_snipe,machine,pistol,rocket,l_shot]
+onready var image := [scene1,sniper,l_snipe,machine]
 var current_image = -1
 var near_switch = -1
 

@@ -1,6 +1,6 @@
 [remap]
 
-importer="wav"
+importer="com.timothyqiu.gdfxr.importer"
 type="AudioStreamSample"
 path="res://.import/Grenade.mp3-b36acf20ccd0e93eb6c045cdc9ec098f.sample"
 
@@ -11,13 +11,6 @@ dest_files=[ "res://.import/Grenade.mp3-b36acf20ccd0e93eb6c045cdc9ec098f.sample"
 
 [params]
 
-force/8_bit=false
-force/mono=false
-force/max_rate=false
-force/max_rate_hz=44100
-edit/trim=false
-edit/normalize=false
-edit/loop_mode=0
-edit/loop_begin=0
-edit/loop_end=-1
-compress/mode=0
+loop=false
+bit_depth=0
+sample_rate=0

@@ -5,7 +5,7 @@
 [ext_resource path="res://SFX/Explosion.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 45.0111
+radius = 31.9766
 
 [node name="Explosion" type="Area2D"]
 scale = Vector2( 2, 2 )

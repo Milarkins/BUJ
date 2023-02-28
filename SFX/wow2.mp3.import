@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wow2.mp3-3c143f35c71ecf77f86b330190b7cd2e.mp3str"
+
+[deps]
+
+source_file="res://SFX/wow2.mp3"
+dest_files=[ "res://.import/wow2.mp3-3c143f35c71ecf77f86b330190b7cd2e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

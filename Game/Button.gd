@@ -4,9 +4,9 @@ onready var player = get_tree().current_scene.get_node("Player")
 
 #guns
 var shotgun = [200,0.5,3,1,0,load("res://Textures/shotgun.png"),Vector2(40,50),Vector2(600,-50),load("res://SFX/shotgun.mp3")]
-var sniper = [400,0,1,1,0,load("res://Textures/sniper.png"),Vector2(80,100),Vector2(1200,-50),load("res://SFX/Sniper.mp3")]
+var sniper = [400,0,1,1,0,load("res://Textures/sniper.png"),Vector2(100,100),Vector2(1200,-50),load("res://SFX/Sniper.mp3")]
 var l_snipe = [400,0,1,1,2,load("res://Textures/laser_sniper.png"),Vector2(70,100),Vector2(1200,-50),load("res://SFX/Laser.mp3")]
-var machine = [500,0,1,0.12,0,load("res://Textures/laser_sniper.png"),Vector2(20,40),Vector2(1078,-50),load("res://SFX/Machine.mp3")]
+var machine = [500,0,1,0.12,0,load("res://Textures/machine_gun.png"),Vector2(20,40),Vector2(1078,-50),load("res://SFX/Machine.mp3")]
 var pistol = [300,0,1,0.5,0,load("res://Textures/pistol.png"),Vector2(-20,20),Vector2(600,-50),load("res://SFX/Pistol.mp3")]
 var rocket = [300,0,1,2,1,load("res://Textures/rocket.png"),Vector2(0,0),Vector2(1000,-50),load("res://SFX/Rocket.mp3")]
 var l_shot = [200,0.5,3,1,2,load("res://Textures/laser_shotgun.png"),Vector2(30,40),Vector2(600,-50),load("res://SFX/Laser2.mp3")]
@@ -28,6 +28,7 @@ var set_sound
 func _ready():
 	randomize()
 	set_all()
+	current_gun = gun_list[0]
 
 func reset():
 	randomize()

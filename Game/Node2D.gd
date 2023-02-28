@@ -11,6 +11,7 @@ var current_phase
 
 func _ready():
 	phase(Choosing)
+	current_song(load("res://Music/edge_is_everything.mp3"))
 	time_text = "Choose Gun!"
 
 var time = 0
@@ -63,3 +64,7 @@ func timer(t):
 
 func end_timer():
 	timer_on = false
+
+func current_song(song):
+	$Music.stream = song
+	$Music.play()

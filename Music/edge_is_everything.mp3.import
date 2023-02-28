@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/edge_is_everything.mp3-cbd1c4043c65311d4f8072775a8f2c4c.mp3str"
+
+[deps]
+
+source_file="res://Music/edge_is_everything.mp3"
+dest_files=[ "res://.import/edge_is_everything.mp3-cbd1c4043c65311d4f8072775a8f2c4c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

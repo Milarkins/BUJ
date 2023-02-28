@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rat8.mp3-a3e923fab1ed6a2041f57263f5cea2eb.mp3str"
+
+[deps]
+
+source_file="res://SFX/rat8.mp3"
+dest_files=[ "res://.import/rat8.mp3-a3e923fab1ed6a2041f57263f5cea2eb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

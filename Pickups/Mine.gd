@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 var explosion = load("res://Bullets/Explosion.tscn")
+func _ready():
+	$FX.play()
 
 func entered(body):
 	if body is enemy:

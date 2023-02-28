@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/UI.gd" type="Script" id=1]
 [ext_resource path="res://UI/UiTheme.tres" type="Theme" id=2]
 [ext_resource path="res://cat.jpg" type="Texture" id=3]
+[ext_resource path="res://Textures/rat.png" type="Texture" id=4]
+[ext_resource path="res://Game/VERYIMPORTANT!!.gd" type="Script" id=5]
+[ext_resource path="res://SFX/rat8.mp3" type="AudioStream" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.82424
+height = 10.3454
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -36,3 +43,28 @@ margin_right = 132.0
 margin_bottom = 941.0
 texture = ExtResource( 3 )
 expand = true
+
+[node name="VERYIMPORTANT!!" type="TextureRect" parent="."]
+anchor_left = 0.966667
+anchor_top = 0.0540541
+anchor_right = 0.982456
+anchor_bottom = 0.0717256
+texture = ExtResource( 4 )
+expand = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Area2D" type="Area2D" parent="VERYIMPORTANT!!"]
+position = Vector2( 9, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VERYIMPORTANT!!/Area2D"]
+position = Vector2( 5, 0 )
+rotation = -1.54906
+shape = SubResource( 1 )
+
+[node name="FX" type="AudioStreamPlayer" parent="VERYIMPORTANT!!"]
+stream = ExtResource( 6 )
+
+[connection signal="body_entered" from="VERYIMPORTANT!!/Area2D" to="VERYIMPORTANT!!" method="entered"]

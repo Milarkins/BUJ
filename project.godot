@@ -46,11 +46,8 @@ config/icon="res://icon.png"
 
 window/size/width=1710
 window/size/height=962
+mouse_cursor/custom_image="res://Textures/crosshair.png"
 window/stretch/mode="viewport"
-
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/gdfxr/plugin.cfg" )
 
 [gui]
 

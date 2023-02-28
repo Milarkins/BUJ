@@ -43,9 +43,13 @@ func knockback(b):
 	stun = true
 	if stun:
 		modulate = Color.lightcoral
-		$FX.play()
+		play_sound(load("res://SFX/hitHurt.mp3"))
 		$StunTimer.start()
 
 func timeout():
 	modulate = Color.white
 	stun = false
+
+func play_sound(sound):
+	$FX.stream = sound
+	$FX.play()

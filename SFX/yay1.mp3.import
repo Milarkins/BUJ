@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/yay1.mp3-27ae1bd41b2820ee35573c0c9d334752.mp3str"
+
+[deps]
+
+source_file="res://SFX/yay1.mp3"
+dest_files=[ "res://.import/yay1.mp3-27ae1bd41b2820ee35573c0c9d334752.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
